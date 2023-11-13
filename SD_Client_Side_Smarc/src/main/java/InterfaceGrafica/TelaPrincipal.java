@@ -530,7 +530,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Integer qtdAtividadeFisicaSemanal = cbAtividadeFisica.getSelectedIndex();
             Integer pas = Integer.valueOf(txtPas.getText());
             Integer pad = Integer.valueOf(txtPad.getText());
-            
+
             Request request = new Request();
             request.setAltura(altura);
             request.setPeso(peso);
@@ -538,8 +538,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             request.setPas(pas);
             request.setPad(pad);
             request.setPontuacaoTabagismo(this.getPontuacaoFormularioTabagismo());
-            
-            
+
             this.limparCampos();
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
