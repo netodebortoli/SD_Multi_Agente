@@ -1,10 +1,12 @@
 package InterfaceGrafica;
 
+import ConexaoMulticast.Conexao;
 import Model.Request;
 import javax.swing.JOptionPane;
-import javax.swing.event.ChangeListener;
 
 public class TelaPrincipal extends javax.swing.JFrame {
+
+    private Conexao conexao;
 
     public TelaPrincipal() {
         initComponents();
@@ -20,6 +22,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         buttonGrupoQuestao3 = new javax.swing.ButtonGroup();
         buttonGrupoQuestao5 = new javax.swing.ButtonGroup();
         buttonGrupoQuestao6 = new javax.swing.ButtonGroup();
+        buttonGrupoQuestao4 = new javax.swing.ButtonGroup();
         btnEnviar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -50,7 +53,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn2Questao3 = new javax.swing.JRadioButton();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
-        cbQuestao4 = new javax.swing.JComboBox<>();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
         btnNaoQuestao5 = new javax.swing.JRadioButton();
@@ -59,6 +61,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         btnNaoQuestao6 = new javax.swing.JRadioButton();
         btnSimQuestao6 = new javax.swing.JRadioButton();
+        btn3Questao1 = new javax.swing.JRadioButton();
+        btn1Questao4 = new javax.swing.JRadioButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jRadioButton5 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sitema Avaliador de Risco Cardíaco");
@@ -125,7 +134,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(cbAtividadeFisica, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,15 +189,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel5.setText("1) Quanto tempo após você acordar você fuma seu primeiro cigarro?");
 
         buttonGrupoQuestao1.add(btn1Grupo1);
-        btn1Grupo1.setMnemonic(3);
+        btn1Grupo1.setMnemonic('\u0003');
         btn1Grupo1.setText("Dentro de 5 minutos");
 
         buttonGrupoQuestao1.add(btn2Grupo1);
-        btn2Grupo1.setMnemonic(2);
+        btn2Grupo1.setMnemonic('\u0002');
         btn2Grupo1.setText("Entre 6 e 30 minutos");
 
         buttonGrupoQuestao1.add(btn3Grupo1);
-        btn3Grupo1.setMnemonic(1);
+        btn3Grupo1.setMnemonic('\u0001');
         btn3Grupo1.setText("Entre 31 e 60 minutos");
 
         buttonGrupoQuestao1.add(btn4Grupo1);
@@ -217,8 +226,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("4) Quantos cigarros você fuma por dia?");
 
-        cbQuestao4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Menos de 10", "De 11 a 20", "De 21 a 30", "Mais de 31" }));
-
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("5) Você fuma mais frequentemente pela manhã?");
 
@@ -239,6 +246,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnSimQuestao6.setMnemonic(1);
         btnSimQuestao6.setText("Sim");
 
+        buttonGrupoQuestao1.add(btn3Questao1);
+        btn3Questao1.setText("Não fumo");
+
+        buttonGrupoQuestao3.add(btn1Questao4);
+        btn1Questao4.setText("Não fumo");
+
+        buttonGrupoQuestao4.add(jRadioButton1);
+        jRadioButton1.setText("Menos de 10");
+
+        buttonGrupoQuestao4.add(jRadioButton2);
+        jRadioButton2.setMnemonic(1);
+        jRadioButton2.setText("Entre 10 e 20");
+
+        buttonGrupoQuestao4.add(jRadioButton3);
+        jRadioButton3.setMnemonic(2);
+        jRadioButton3.setText("Entre 20 e 30");
+
+        buttonGrupoQuestao4.add(jRadioButton4);
+        jRadioButton4.setMnemonic(3);
+        jRadioButton4.setText("Mais de 31");
+
+        buttonGrupoQuestao4.add(jRadioButton5);
+        jRadioButton5.setText("Não fumo");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -251,26 +282,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createSequentialGroup()
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btn1Grupo1)
-                                .addComponent(btn2Grupo1))
-                            .addGap(55, 55, 55)
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btn3Grupo1)
-                                .addComponent(btn4Grupo1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(jLabel6))
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(btn1Grupo1)
+                                        .addComponent(btn2Grupo1))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel4Layout.createSequentialGroup()
+                                            .addComponent(btn3Grupo1)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(btn3Questao1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btn4Grupo1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel6))
+                            .addContainerGap()))
                     .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(jSeparator2)
+            .addComponent(jSeparator3)
+            .addComponent(jSeparator4)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(btnSimQuestao2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
-                        .addComponent(btnNaoQuestao2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(btn2Questao3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(btn1Questao3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn1Questao3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn1Questao4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -287,18 +324,31 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cbQuestao4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(btnSimQuestao6, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(83, 83, 83)
-                        .addComponent(btnNaoQuestao6, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnNaoQuestao6, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(btnSimQuestao2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(90, 90, 90)
+                        .addComponent(btnNaoQuestao2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)
+                                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28)
+                        .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jSeparator2)
-            .addComponent(jSeparator3)
-            .addComponent(jSeparator4)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,9 +356,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn1Grupo1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn3Grupo1)
-                    .addComponent(btn1Grupo1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btn3Questao1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn2Grupo1)
@@ -317,7 +368,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSimQuestao2)
                     .addComponent(btnNaoQuestao2))
@@ -328,14 +379,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn1Questao3)
-                    .addComponent(btn2Questao3))
+                    .addComponent(btn2Questao3)
+                    .addComponent(btn1Questao4))
                 .addGap(13, 13, 13)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
-                .addGap(18, 18, 18)
-                .addComponent(cbQuestao4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton3)
+                    .addComponent(jRadioButton5))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
@@ -351,7 +410,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSimQuestao6)
                     .addComponent(btnNaoQuestao6))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(7, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel4);
@@ -390,8 +449,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jPanel1.getAccessibleContext().setAccessibleName("Atividades físicas por semana");
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -422,7 +479,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         if (buttonGrupoQuestao3.getSelection() == null) {
             mensagem += "A questão 3 do formulário é obrigatória.\n";
         }
-        if (cbQuestao4.getSelectedIndex() == -1 || cbQuestao4.getSelectedItem() == null) {
+        if (buttonGrupoQuestao4.getSelection() == null) {
             mensagem += "A questão 4 do formulário é obrigatória.\n";
         }
         if (buttonGrupoQuestao5.getSelection() == null) {
@@ -449,33 +506,39 @@ public class TelaPrincipal extends javax.swing.JFrame {
         buttonGrupoQuestao1.clearSelection();
         buttonGrupoQuestao2.clearSelection();
         buttonGrupoQuestao3.clearSelection();
-        cbQuestao4.setSelectedItem(null);
+        buttonGrupoQuestao4.clearSelection();
         buttonGrupoQuestao5.clearSelection();
         buttonGrupoQuestao6.clearSelection();
     }
 
-    private int getPontuacaoFormularioTabagismo() {
+    private Integer getPontuacaoFormularioTabagismo() {
         int pontuacao = 0;
         pontuacao += buttonGrupoQuestao1.getSelection().getMnemonic();
         pontuacao += buttonGrupoQuestao2.getSelection().getMnemonic();
         pontuacao += buttonGrupoQuestao3.getSelection().getMnemonic();
-        pontuacao += cbQuestao4.getSelectedIndex();
+        pontuacao += buttonGrupoQuestao4.getSelection().getMnemonic();
         pontuacao += buttonGrupoQuestao5.getSelection().getMnemonic();
         pontuacao += buttonGrupoQuestao6.getSelection().getMnemonic();
         return pontuacao;
     }
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-        if (validarCamposPreenchidos()) {
 
-            Object respostas[] = {
-                txtAltura.getText(),
-                txtPeso.getText(),
-                cbAtividadeFisica.getSelectedIndex(),
-                txtPas.getText(),
-                txtPad.getText(),
-                this.getPontuacaoFormularioTabagismo()
-            };
+        if (validarCamposPreenchidos()) {
+            double altura = Double.parseDouble(txtAltura.getText().replace(",", "."));
+            double peso = Double.parseDouble(txtPeso.getText().replace(",", "."));
+            Integer qtdAtividadeFisicaSemanal = cbAtividadeFisica.getSelectedIndex();
+            Integer pas = Integer.valueOf(txtPas.getText());
+            Integer pad = Integer.valueOf(txtPad.getText());
+            
+            Request request = new Request();
+            request.setAltura(altura);
+            request.setPeso(peso);
+            request.setQtdAtividadeFisicaSemanal(qtdAtividadeFisicaSemanal);
+            request.setPas(pas);
+            request.setPad(pad);
+            request.setPontuacaoTabagismo(this.getPontuacaoFormularioTabagismo());
+            
             
             this.limparCampos();
         }
@@ -503,9 +566,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton btn1Grupo1;
     private javax.swing.JRadioButton btn1Questao3;
+    private javax.swing.JRadioButton btn1Questao4;
     private javax.swing.JRadioButton btn2Grupo1;
     private javax.swing.JRadioButton btn2Questao3;
     private javax.swing.JRadioButton btn3Grupo1;
+    private javax.swing.JRadioButton btn3Questao1;
     private javax.swing.JRadioButton btn4Grupo1;
     private javax.swing.JButton btnEnviar;
     private javax.swing.JRadioButton btnNaoQuestao2;
@@ -517,10 +582,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGrupoQuestao1;
     private javax.swing.ButtonGroup buttonGrupoQuestao2;
     private javax.swing.ButtonGroup buttonGrupoQuestao3;
+    private javax.swing.ButtonGroup buttonGrupoQuestao4;
     private javax.swing.ButtonGroup buttonGrupoQuestao5;
     private javax.swing.ButtonGroup buttonGrupoQuestao6;
     private javax.swing.JComboBox<String> cbAtividadeFisica;
-    private javax.swing.JComboBox<String> cbQuestao4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -535,6 +600,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
