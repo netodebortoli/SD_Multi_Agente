@@ -456,7 +456,7 @@
                           <Component id="btnSimQuestao6" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnNaoQuestao6" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -475,6 +475,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGrupoQuestao1"/>
                 </Property>
+                <Property name="mnemonic" type="int" value="3"/>
                 <Property name="text" type="java.lang.String" value="Dentro de 5 minutos"/>
               </Properties>
             </Component>
@@ -483,6 +484,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGrupoQuestao1"/>
                 </Property>
+                <Property name="mnemonic" type="int" value="2"/>
                 <Property name="text" type="java.lang.String" value="Entre 6 e 30 minutos"/>
               </Properties>
             </Component>
@@ -491,6 +493,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGrupoQuestao1"/>
                 </Property>
+                <Property name="mnemonic" type="int" value="1"/>
                 <Property name="text" type="java.lang.String" value="Entre 31 e 60 minutos"/>
               </Properties>
             </Component>
@@ -517,6 +520,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGrupoQuestao2"/>
                 </Property>
+                <Property name="mnemonic" type="int" value="1"/>
                 <Property name="text" type="java.lang.String" value="Sim"/>
               </Properties>
             </Component>
@@ -551,6 +555,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGrupoQuestao3"/>
                 </Property>
+                <Property name="mnemonic" type="int" value="1"/>
                 <Property name="text" type="java.lang.String" value="O primeiro da manh&#xe3;"/>
               </Properties>
             </Component>
@@ -602,6 +607,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGrupoQuestao5"/>
                 </Property>
+                <Property name="mnemonic" type="int" value="1"/>
                 <Property name="text" type="java.lang.String" value="Sim"/>
               </Properties>
             </Component>
@@ -628,6 +634,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="buttonGrupoQuestao6"/>
                 </Property>
+                <Property name="mnemonic" type="int" value="1"/>
                 <Property name="text" type="java.lang.String" value="Sim"/>
               </Properties>
             </Component>

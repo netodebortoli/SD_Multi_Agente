@@ -1,6 +1,8 @@
 package InterfaceGrafica;
 
+import Model.Request;
 import javax.swing.JOptionPane;
+import javax.swing.event.ChangeListener;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
@@ -178,12 +180,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel5.setText("1) Quanto tempo após você acordar você fuma seu primeiro cigarro?");
 
         buttonGrupoQuestao1.add(btn1Grupo1);
+        btn1Grupo1.setMnemonic(3);
         btn1Grupo1.setText("Dentro de 5 minutos");
 
         buttonGrupoQuestao1.add(btn2Grupo1);
+        btn2Grupo1.setMnemonic(2);
         btn2Grupo1.setText("Entre 6 e 30 minutos");
 
         buttonGrupoQuestao1.add(btn3Grupo1);
+        btn3Grupo1.setMnemonic(1);
         btn3Grupo1.setText("Entre 31 e 60 minutos");
 
         buttonGrupoQuestao1.add(btn4Grupo1);
@@ -193,6 +198,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel6.setText("2) Você acha difícil não fumar em lugares proibidos tais como igrejas, cinemas, ônibus?");
 
         buttonGrupoQuestao2.add(btnSimQuestao2);
+        btnSimQuestao2.setMnemonic(1);
         btnSimQuestao2.setText("Sim");
 
         buttonGrupoQuestao2.add(btnNaoQuestao2);
@@ -205,6 +211,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn1Questao3.setText("Outros");
 
         buttonGrupoQuestao3.add(btn2Questao3);
+        btn2Questao3.setMnemonic(1);
         btn2Questao3.setText("O primeiro da manhã");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -219,6 +226,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnNaoQuestao5.setText("Não");
 
         buttonGrupoQuestao5.add(btnSimQuestao5);
+        btnSimQuestao5.setMnemonic(1);
         btnSimQuestao5.setText("Sim");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -228,6 +236,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnNaoQuestao6.setText("Não");
 
         buttonGrupoQuestao6.add(btnSimQuestao6);
+        btnSimQuestao6.setMnemonic(1);
         btnSimQuestao6.setText("Sim");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -342,7 +351,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSimQuestao6)
                     .addComponent(btnNaoQuestao6))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel4);
@@ -445,9 +454,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
         buttonGrupoQuestao6.clearSelection();
     }
 
+    private int getPontuacaoFormularioTabagismo() {
+        int pontuacao = 0;
+        pontuacao += buttonGrupoQuestao1.getSelection().getMnemonic();
+        pontuacao += buttonGrupoQuestao2.getSelection().getMnemonic();
+        pontuacao += buttonGrupoQuestao3.getSelection().getMnemonic();
+        pontuacao += cbQuestao4.getSelectedIndex();
+        pontuacao += buttonGrupoQuestao5.getSelection().getMnemonic();
+        pontuacao += buttonGrupoQuestao6.getSelection().getMnemonic();
+        return pontuacao;
+    }
+
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
         if (validarCamposPreenchidos()) {
 
+            Object respostas[] = {
+                txtAltura.getText(),
+                txtPeso.getText(),
+                cbAtividadeFisica.getSelectedIndex(),
+                txtPas.getText(),
+                txtPad.getText(),
+                this.getPontuacaoFormularioTabagismo()
+            };
+            
             this.limparCampos();
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
