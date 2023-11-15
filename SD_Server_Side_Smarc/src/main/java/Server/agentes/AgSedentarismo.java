@@ -9,9 +9,8 @@ public class AgSedentarismo extends Agente {
     }
 
     @Override
-    public double executar(Request request) {
+    public double executar() {
 
-        String resposta;
         double indiceSedentarismo = 0;
 
         switch (request.getQtdAtividadeFisicaSemanal()) {
@@ -33,7 +32,6 @@ public class AgSedentarismo extends Agente {
         }
 
         return indiceSedentarismo;
-
     }
 
 }

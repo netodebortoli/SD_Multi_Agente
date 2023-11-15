@@ -9,7 +9,7 @@ public class AgProfissional extends Agente {
     }
 
     @Override
-    public double executar(Request request) {
+    public double executar() {
         return request.getOpniaoEspecialistaChanceAtqCardiaco();
     }
     

@@ -9,7 +9,7 @@ public class AgTabagismo extends Agente {
     }
 
     @Override
-    public double executar(Request request) {
+    public double executar() {
 
         double indiceTabagismo = 0;
 

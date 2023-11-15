@@ -9,7 +9,7 @@ public class AgObesidade extends Agente {
     }
 
     @Override 
-    public double executar(Request request) {
+    public double executar() {
         
         double indiceObesidade;
         double peso = request.getPeso();

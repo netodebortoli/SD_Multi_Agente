@@ -245,6 +245,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel9.setText("5) Você fuma mais frequentemente pela manhã?");
 
         buttonGrupoQuestao5.add(btnNaoQuestao5);
+        btnNaoQuestao5.setMnemonic('0');
         btnNaoQuestao5.setText("Não");
 
         buttonGrupoQuestao5.add(btnSimQuestao5);
@@ -481,7 +482,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
                 .addGap(2, 2, 2)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -587,7 +588,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             request.setPas(pas);
             request.setPad(pad);
             request.setPontuacaoTabagismo(this.getPontuacaoFormularioTabagismo());
-            request.setOpniaoEspecialistaChanceAtqCardiaco(opniaoEspecialistaChanceAtqCardiaco);
+            request.setOpniaoEspecialistaChanceAtqCardiaco(opniaoEspecialistaChanceAtqCardiaco/100);
 
             conexao.iniciar(request);
 

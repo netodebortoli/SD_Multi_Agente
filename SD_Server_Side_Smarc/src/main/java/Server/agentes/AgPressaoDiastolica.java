@@ -9,7 +9,7 @@ public class AgPressaoDiastolica extends Agente {
     }
 
     @Override
-    public double executar(Request request) {
+    public double executar() {
 
         double indicePAD;
         double pressaoDiastolica = request.getPad();

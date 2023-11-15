@@ -4,12 +4,12 @@ import ConexaoMulticast.Request;
 
 public abstract class Agente {
 
-    private Request request;
+    protected static Request request;
 
-    public abstract double executar(Request request);
+    public abstract double executar();
 
     public Agente(Request request) {
-        this.request = request;
+        Agente.request = request;
     }
 
 }
