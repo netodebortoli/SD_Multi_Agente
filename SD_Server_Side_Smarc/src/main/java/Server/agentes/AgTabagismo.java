@@ -11,26 +11,21 @@ public class AgTabagismo extends Agente {
     @Override
     public double executar() {
 
-        double indiceTabagismo = 0;
+        double indiceTabagismo;
+        int pontuacao = request.getPontuacaoTabagismo();
 
-        switch (request.getPontuacaoTabagismo()) {
-            case 10:
-                indiceTabagismo = 1.0;
-                break;
-            case 8:
-                indiceTabagismo = 0.75;
-                break;
-            case 5:
-                indiceTabagismo = 0.50;
-                break;
-            case 3:
-                indiceTabagismo = 0.25;
-                break;
-            case 0:
-                indiceTabagismo = 0.0;
-                break;
+        if(pontuacao == 0){
+            indiceTabagismo = 0.0;
+        } else if (pontuacao > 0 && pontuacao <= 3) {
+            indiceTabagismo = 0.25;
+        } else if (pontuacao > 3 && pontuacao <= 5) {
+            indiceTabagismo = 0.50;
+        } else if (pontuacao > 5 && pontuacao <= 8) {
+            indiceTabagismo = 0.75;
+        } else {
+            indiceTabagismo = 1.0;
         }
-
+        
         return indiceTabagismo;
 
     }
