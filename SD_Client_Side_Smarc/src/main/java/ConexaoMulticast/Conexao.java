@@ -1,6 +1,5 @@
 package ConexaoMulticast;
 
-import Model.Request;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -13,12 +12,12 @@ public class Conexao {
 
     private final static int MULTICAST_PORT = 52684;
     private String multiCastAddress = "224.0.0.1";
-    private InetAddress group;
+    private InetAddress enderecoGrupo;
     private MulticastSocket socket;
 
     public Conexao() {
         try {
-            group = InetAddress.getByName(multiCastAddress);
+            enderecoGrupo = InetAddress.getByName(multiCastAddress);
         } catch (UnknownHostException ex) {
             System.out.println("Erro ao conectar com o grupo (UnknownHostException):\n" + ex.getMessage());
         }
@@ -28,8 +27,10 @@ public class Conexao {
         // create a socket
         try {
             socket = new MulticastSocket(MULTICAST_PORT);
-            socket.joinGroup(group);
-
+            socket.joinGroup(enderecoGrupo);
+            
+            System.out.println(request.getAltura());
+            
             // prepare date
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -37,7 +38,7 @@ public class Conexao {
 
             byte[] data = baos.toByteArray();
 
-            socket.send(new DatagramPacket(data, data.length, group, MULTICAST_PORT));
+            socket.send(new DatagramPacket(data, data.length, enderecoGrupo, MULTICAST_PORT));
 
         } catch (IOException ex) {
             System.out.println("Erro ao conectar com o socket (IOException):\n" + ex.getMessage());

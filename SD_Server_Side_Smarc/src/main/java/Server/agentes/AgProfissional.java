@@ -1,6 +1,6 @@
 package Server.agentes;
 
-import Server.model.Request;
+import ConexaoMulticast.Request;
 
 public class AgProfissional extends Agente {
 

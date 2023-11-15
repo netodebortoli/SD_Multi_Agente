@@ -1,4 +1,4 @@
-package Model;
+package ConexaoMulticast;
 
 import java.io.Serializable;
 
@@ -17,5 +17,4 @@ public class Response implements Serializable {
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
-
 }

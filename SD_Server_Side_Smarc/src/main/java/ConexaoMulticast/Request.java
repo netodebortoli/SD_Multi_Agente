@@ -1,4 +1,4 @@
-package Model;
+package ConexaoMulticast;
 
 import java.io.Serializable;
 
