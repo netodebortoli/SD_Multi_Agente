@@ -20,7 +20,7 @@ public class Conexao {
         try {
             group = InetAddress.getByName(multiCastAddress);
         } catch (UnknownHostException ex) {
-            System.out.println("Erro ao conectar com o grupo.\n" + ex.getMessage());
+            System.out.println("Erro ao conectar com o grupo (UnknownHostException):\n" + ex.getMessage());
         }
     }
 
@@ -40,7 +40,7 @@ public class Conexao {
             socket.send(new DatagramPacket(data, data.length, group, MULTICAST_PORT));
 
         } catch (IOException ex) {
-            System.out.println("Erro ao conectar com o socket.\n" + ex.getMessage());
+            System.out.println("Erro ao conectar com o socket (IOException):\n" + ex.getMessage());
         }
     }
 

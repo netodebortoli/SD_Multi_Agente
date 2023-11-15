@@ -10,7 +10,7 @@ public class AgProfissional extends Agente {
 
     @Override
     public double executar(Request request) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return request.getOpniaoEspecialistaChanceAtqCardiaco();
     }
     
 }

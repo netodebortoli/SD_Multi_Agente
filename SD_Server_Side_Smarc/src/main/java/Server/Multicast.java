@@ -38,8 +38,7 @@ public class Multicast {
                 } catch (IOException e) {
                 System.out.println("Erro no observador (criação dos Streams): IO Exception - " + e.getMessage());
             }
-
         }
-
     }
+    
 }

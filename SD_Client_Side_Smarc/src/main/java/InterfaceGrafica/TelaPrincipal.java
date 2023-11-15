@@ -2,11 +2,12 @@ package InterfaceGrafica;
 
 import ConexaoMulticast.Conexao;
 import Model.Request;
+import Model.Response;
 import javax.swing.JOptionPane;
 
 public class TelaPrincipal extends javax.swing.JFrame {
 
-    private Conexao conexao;
+    private static final Conexao conexao = new Conexao();
 
     public TelaPrincipal() {
         initComponents();
@@ -68,13 +69,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jRadioButton3 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jRadioButton5 = new javax.swing.JRadioButton();
+        jPanel5 = new javax.swing.JPanel();
+        riscoCardiaco = new javax.swing.JSlider();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sitema Avaliador de Risco Cardíaco");
         setResizable(false);
 
         btnEnviar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnEnviar.setForeground(new java.awt.Color(51, 51, 255));
+        btnEnviar.setForeground(new java.awt.Color(0, 0, 255));
         btnEnviar.setText("Enviar");
         btnEnviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,15 +85,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "IMC", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "IMC", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         jLabel1.setText("Altura");
 
         jLabel2.setText("Peso");
 
         txtAltura.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtAltura.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtAlturaFocusLost(evt);
+            }
+        });
 
         txtPeso.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0.00"))));
+        txtPeso.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtPesoFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -102,7 +115,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAltura, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
+                        .addComponent(txtAltura, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -123,7 +136,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(12, 12, 12))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Atividades físicas por semana", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Atividades físicas por semana", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         cbAtividadeFisica.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nenhuma", "1x", "2x", "3x", "4 ou mais" }));
 
@@ -131,20 +144,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
                 .addComponent(cbAtividadeFisica, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(cbAtividadeFisica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Pressão Arterial (PA)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Pressão Arterial (PA)", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
 
         jLabel3.setText("Pressão Sistólica (PAS)");
 
@@ -163,7 +176,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtPas, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
                     .addComponent(txtPad))
@@ -180,10 +193,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtPad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Formulário sobre Tabagismo", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Formulário sobre Tabagismo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        jPanel4.setAutoscrolls(true);
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("1) Quanto tempo após você acordar você fuma seu primeiro cigarro?");
@@ -207,7 +222,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel6.setText("2) Você acha difícil não fumar em lugares proibidos tais como igrejas, cinemas, ônibus?");
 
         buttonGrupoQuestao2.add(btnSimQuestao2);
-        btnSimQuestao2.setMnemonic(1);
+        btnSimQuestao2.setMnemonic('\u0001');
         btnSimQuestao2.setText("Sim");
 
         buttonGrupoQuestao2.add(btnNaoQuestao2);
@@ -220,7 +235,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btn1Questao3.setText("Outros");
 
         buttonGrupoQuestao3.add(btn2Questao3);
-        btn2Questao3.setMnemonic(1);
+        btn2Questao3.setMnemonic('\u0001');
         btn2Questao3.setText("O primeiro da manhã");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -233,7 +248,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnNaoQuestao5.setText("Não");
 
         buttonGrupoQuestao5.add(btnSimQuestao5);
-        btnSimQuestao5.setMnemonic(1);
+        btnSimQuestao5.setMnemonic('\u0001');
         btnSimQuestao5.setText("Sim");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -243,7 +258,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnNaoQuestao6.setText("Não");
 
         buttonGrupoQuestao6.add(btnSimQuestao6);
-        btnSimQuestao6.setMnemonic(1);
+        btnSimQuestao6.setMnemonic('\u0001');
         btnSimQuestao6.setText("Sim");
 
         buttonGrupoQuestao1.add(btn3Questao1);
@@ -256,15 +271,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jRadioButton1.setText("Menos de 10");
 
         buttonGrupoQuestao4.add(jRadioButton2);
-        jRadioButton2.setMnemonic(1);
+        jRadioButton2.setMnemonic('\u0001');
         jRadioButton2.setText("Entre 10 e 20");
 
         buttonGrupoQuestao4.add(jRadioButton3);
-        jRadioButton3.setMnemonic(2);
+        jRadioButton3.setMnemonic('\u0002');
         jRadioButton3.setText("Entre 20 e 30");
 
         buttonGrupoQuestao4.add(jRadioButton4);
-        jRadioButton4.setMnemonic(3);
+        jRadioButton4.setMnemonic('\u0003');
         jRadioButton4.setText("Mais de 31");
 
         buttonGrupoQuestao4.add(jRadioButton5);
@@ -278,24 +293,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel4Layout.createSequentialGroup()
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(btn1Grupo1)
-                                        .addComponent(btn2Grupo1))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanel4Layout.createSequentialGroup()
-                                            .addComponent(btn3Grupo1)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(btn3Questao1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(btn4Grupo1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jLabel6))
-                            .addContainerGap()))
-                    .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 492, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 634, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(btn1Grupo1)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn3Grupo1)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn3Questao1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(148, Short.MAX_VALUE))
+                    .addComponent(jSeparator5)))
             .addComponent(jSeparator2)
             .addComponent(jSeparator3)
             .addComponent(jSeparator4)
@@ -312,9 +321,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
+                        .addGap(110, 110, 110)
                         .addComponent(btnSimQuestao5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
+                        .addGap(115, 115, 115)
                         .addComponent(btnNaoQuestao5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
@@ -326,14 +335,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(113, 113, 113)
                         .addComponent(btnSimQuestao6, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
+                        .addGap(113, 113, 113)
                         .addComponent(btnNaoQuestao6, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(104, 104, 104)
                         .addComponent(btnSimQuestao2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90)
+                        .addGap(119, 119, 119)
                         .addComponent(btnNaoQuestao2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
@@ -347,7 +356,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addGap(60, 60, 60)
                                 .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(28, 28, 28)
-                        .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn2Grupo1)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn4Grupo1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -360,11 +374,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(btn1Grupo1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn3Grupo1)
                     .addComponent(btn3Questao1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn2Grupo1)
                     .addComponent(btn4Grupo1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
@@ -410,43 +424,75 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSimQuestao6)
                     .addComponent(btnNaoQuestao6))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane2.setViewportView(jPanel4);
+
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Chances de risco cardiaco segundo sua análise", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+
+        riscoCardiaco.setBackground(new java.awt.Color(255, 255, 255));
+        riscoCardiaco.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        riscoCardiaco.setForeground(new java.awt.Color(204, 0, 0));
+        riscoCardiaco.setMajorTickSpacing(5);
+        riscoCardiaco.setPaintLabels(true);
+        riscoCardiaco.setPaintTicks(true);
+        riscoCardiaco.setFocusable(false);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(riscoCardiaco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(riscoCardiaco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(261, 261, 261))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(2, 2, 2)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(btnEnviar, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -492,7 +538,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         if (mensagem.isBlank()) {
             return true;
         } else {
-            JOptionPane.showMessageDialog(this, mensagem);
+            JOptionPane.showMessageDialog(
+                    this,
+                    mensagem,
+                    "Preencha os campos obrigatórios.",
+                    JOptionPane.WARNING_MESSAGE);
             return false;
         }
     }
@@ -509,6 +559,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         buttonGrupoQuestao4.clearSelection();
         buttonGrupoQuestao5.clearSelection();
         buttonGrupoQuestao6.clearSelection();
+        riscoCardiaco.setValue(50);
+        jScrollPane2.getVerticalScrollBar().setValue(0);
     }
 
     private Integer getPontuacaoFormularioTabagismo() {
@@ -530,6 +582,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Integer qtdAtividadeFisicaSemanal = cbAtividadeFisica.getSelectedIndex();
             Integer pas = Integer.valueOf(txtPas.getText());
             Integer pad = Integer.valueOf(txtPad.getText());
+            Integer opniaoEspecialistaChanceAtqCardiaco = riscoCardiaco.getValue();
 
             Request request = new Request();
             request.setAltura(altura);
@@ -538,10 +591,48 @@ public class TelaPrincipal extends javax.swing.JFrame {
             request.setPas(pas);
             request.setPad(pad);
             request.setPontuacaoTabagismo(this.getPontuacaoFormularioTabagismo());
+            request.setOpniaoEspecialistaChanceAtqCardiaco(opniaoEspecialistaChanceAtqCardiaco);
+
+//            Response response = new Response(
+//                    conexao.iniciar(request);
+//            );
+            JOptionPane.showConfirmDialog(
+                    this,
+                    "Teste 50%",
+                    "Resultado de Risco cardíaco",
+                    JOptionPane.INFORMATION_MESSAGE);
 
             this.limparCampos();
         }
     }//GEN-LAST:event_btnEnviarActionPerformed
+
+    private void txtAlturaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAlturaFocusLost
+        if (!txtAltura.getText().isBlank()) {
+            double altura = Double.parseDouble(txtAltura.getText().replace(",", "."));
+            if (altura < 0.3 || altura > 2.5) {
+                JOptionPane.showMessageDialog(this,
+                        "A altura informada é inválida.\n"
+                        + "Informe uma altura entre 0,3m e 2,5m.",
+                        "Altura inválida",
+                        JOptionPane.ERROR_MESSAGE);
+                txtAltura.setText("");
+            }
+        }
+    }//GEN-LAST:event_txtAlturaFocusLost
+
+    private void txtPesoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtPesoFocusLost
+        if (!txtPeso.getText().isBlank()) {
+            double peso = Double.parseDouble(txtPeso.getText().replace(",", "."));
+            if (peso <= 0 || peso > 600) {
+                JOptionPane.showMessageDialog(this,
+                        "O peso informado é inválido.\n"
+                        + "Informe um peso maior que 0 e menor que 600 quilos.",
+                        "Peso inválido",
+                        JOptionPane.ERROR_MESSAGE);
+                txtPeso.setText("");
+            }
+        }
+    }//GEN-LAST:event_txtPesoFocusLost
 
     public static void main(String args[]) {
         try {
@@ -599,6 +690,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
@@ -610,6 +702,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSlider riscoCardiaco;
     private javax.swing.JFormattedTextField txtAltura;
     private javax.swing.JFormattedTextField txtPad;
     private javax.swing.JFormattedTextField txtPas;

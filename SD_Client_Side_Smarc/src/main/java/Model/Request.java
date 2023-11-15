@@ -10,6 +10,7 @@ public class Request implements Serializable {
     private Integer pad;
     private Integer qtdAtividadeFisicaSemanal;
     private Integer pontuacaoTabagismo;
+    private Integer opniaoEspecialistaChanceAtqCardiaco;
 
     public Request() {
     }
@@ -60,6 +61,14 @@ public class Request implements Serializable {
 
     public void setPontuacaoTabagismo(Integer pontuacaoTabagismo) {
         this.pontuacaoTabagismo = pontuacaoTabagismo;
+    }
+
+    public Integer getOpniaoEspecialistaChanceAtqCardiaco() {
+        return opniaoEspecialistaChanceAtqCardiaco;
+    }
+
+    public void setOpniaoEspecialistaChanceAtqCardiaco(Integer opniaoEspecialistaChanceAtqCardiaco) {
+        this.opniaoEspecialistaChanceAtqCardiaco = opniaoEspecialistaChanceAtqCardiaco;
     }
 
 }
