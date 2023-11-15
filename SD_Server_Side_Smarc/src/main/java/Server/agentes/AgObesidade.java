@@ -4,13 +4,28 @@ import Server.model.Request;
 
 public class AgObesidade extends Agente {
 
-    public AgObesidade(String nome) {
-        super(nome);
+    public AgObesidade(Request request) {
+        super(request);
     }
 
-    @Override
-    public String executar(Request request) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    @Override 
+    public double executar(Request request) {
+        
+        double indiceObesidade;
+        double peso = request.getPeso();
+        double altura = request.getAltura();
+
+        double imc = (peso / (Math.pow(altura, 2)));
+        
+        if(imc < 25){
+            indiceObesidade = 0;
+        } else if (imc > 40){
+            indiceObesidade = 1;
+        } else {
+            indiceObesidade = ((imc - 25) / (40 - 25));
+        }
+        
+        return indiceObesidade;
     }
-    
+
 }

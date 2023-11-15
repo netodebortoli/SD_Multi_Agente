@@ -4,13 +4,36 @@ import Server.model.Request;
 
 public class AgSedentarismo extends Agente {
 
-    public AgSedentarismo(String nome) {
-        super(nome);
+    public AgSedentarismo(Request request) {
+        super(request);
     }
 
     @Override
-    public String executar(Request request) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public double executar(Request request) {
+
+        String resposta;
+        double indiceSedentarismo = 0;
+
+        switch (request.getQtdAtividadeFisicaSemanal()) {
+            case 0:
+                indiceSedentarismo = 1.0;
+                break;
+            case 1:
+                indiceSedentarismo = 0.75;
+                break;
+            case 2:
+                indiceSedentarismo = 0.50;
+                break;
+            case 3:
+                indiceSedentarismo = 0.25;
+                break;
+            case 4:
+                indiceSedentarismo = 0.0;
+                break;
+        }
+
+        return indiceSedentarismo;
+
     }
 
 }

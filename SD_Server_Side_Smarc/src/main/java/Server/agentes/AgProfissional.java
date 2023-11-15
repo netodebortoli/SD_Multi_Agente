@@ -2,14 +2,14 @@ package Server.agentes;
 
 import Server.model.Request;
 
-public class AgDependenciaDeNicotina extends Agente {
+public class AgProfissional extends Agente {
 
-    public AgDependenciaDeNicotina(String nome) {
-        super(nome);
+    public AgProfissional(Request request) {
+        super(request);
     }
 
     @Override
-    public String executar(Request request) {
+    public double executar(Request request) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
