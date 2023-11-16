@@ -579,7 +579,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             Integer qtdAtividadeFisicaSemanal = cbAtividadeFisica.getSelectedIndex();
             Integer pas = Integer.valueOf(txtPas.getText());
             Integer pad = Integer.valueOf(txtPad.getText());
-            Integer opniaoEspecialistaChanceAtqCardiaco = riscoCardiaco.getValue();
+            Integer opiniaoEspecialistaChanceAtqCardiaco = riscoCardiaco.getValue();
 
             Request request = new Request();
             request.setAltura(altura);
@@ -588,13 +588,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
             request.setPas(pas);
             request.setPad(pad);
             request.setPontuacaoTabagismo(this.getPontuacaoFormularioTabagismo());
-            request.setOpniaoEspecialistaChanceAtqCardiaco(opniaoEspecialistaChanceAtqCardiaco/100);
+            request.setOpniaoEspecialistaChanceAtqCardiaco(opiniaoEspecialistaChanceAtqCardiaco/100);
 
-            conexao.iniciar(request);
+            String resposta = conexao.iniciar(request);
 
             JOptionPane.showMessageDialog(
                     this,
-                    "Teste 50%",
+                    resposta,
                     "Resultado de Risco cardíaco",
                     JOptionPane.INFORMATION_MESSAGE);
 
