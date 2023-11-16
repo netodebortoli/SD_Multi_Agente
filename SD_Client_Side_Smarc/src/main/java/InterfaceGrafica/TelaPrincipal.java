@@ -50,8 +50,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         btnNaoQuestao2 = new javax.swing.JRadioButton();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
-        btn1Questao3 = new javax.swing.JRadioButton();
         btn2Questao3 = new javax.swing.JRadioButton();
+        btn1Questao3 = new javax.swing.JRadioButton();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
@@ -62,13 +62,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         btnNaoQuestao6 = new javax.swing.JRadioButton();
         btnSimQuestao6 = new javax.swing.JRadioButton();
-        btn3Questao1 = new javax.swing.JRadioButton();
+        btn5Questao1 = new javax.swing.JRadioButton();
+        btn3Questao3 = new javax.swing.JRadioButton();
         btn1Questao4 = new javax.swing.JRadioButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        btn2Questao4 = new javax.swing.JRadioButton();
+        btn3Questao4 = new javax.swing.JRadioButton();
+        btn4Questao4 = new javax.swing.JRadioButton();
+        btn5Questao4 = new javax.swing.JRadioButton();
         jPanel5 = new javax.swing.JPanel();
         riscoCardiaco = new javax.swing.JSlider();
 
@@ -204,39 +204,42 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel5.setText("1) Quanto tempo após você acordar você fuma seu primeiro cigarro?");
 
         buttonGrupoQuestao1.add(btn1Grupo1);
-        btn1Grupo1.setMnemonic('\u0003');
+        btn1Grupo1.setMnemonic(3);
         btn1Grupo1.setText("Dentro de 5 minutos");
 
         buttonGrupoQuestao1.add(btn2Grupo1);
-        btn2Grupo1.setMnemonic('\u0002');
+        btn2Grupo1.setMnemonic(2);
         btn2Grupo1.setText("Entre 6 e 30 minutos");
 
         buttonGrupoQuestao1.add(btn3Grupo1);
-        btn3Grupo1.setMnemonic('\u0001');
+        btn3Grupo1.setMnemonic(1);
         btn3Grupo1.setText("Entre 31 e 60 minutos");
 
         buttonGrupoQuestao1.add(btn4Grupo1);
+        btn4Grupo1.setMnemonic(0);
         btn4Grupo1.setText("Após 60 minutos");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("2) Você acha difícil não fumar em lugares proibidos tais como igrejas, cinemas, ônibus?");
 
         buttonGrupoQuestao2.add(btnSimQuestao2);
-        btnSimQuestao2.setMnemonic('\u0001');
+        btnSimQuestao2.setMnemonic(1);
         btnSimQuestao2.setText("Sim");
 
         buttonGrupoQuestao2.add(btnNaoQuestao2);
+        btnNaoQuestao2.setMnemonic(0);
         btnNaoQuestao2.setText("Não");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("3) Qual cigarro do dia lhe dá mais satisfação?");
 
-        buttonGrupoQuestao3.add(btn1Questao3);
-        btn1Questao3.setText("Outros");
-
         buttonGrupoQuestao3.add(btn2Questao3);
-        btn2Questao3.setMnemonic('\u0001');
-        btn2Questao3.setText("O primeiro da manhã");
+        btn2Questao3.setMnemonic(0);
+        btn2Questao3.setText("Outros");
+
+        buttonGrupoQuestao3.add(btn1Questao3);
+        btn1Questao3.setMnemonic(1);
+        btn1Questao3.setText("O primeiro da manhã");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("4) Quantos cigarros você fuma por dia?");
@@ -245,46 +248,51 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jLabel9.setText("5) Você fuma mais frequentemente pela manhã?");
 
         buttonGrupoQuestao5.add(btnNaoQuestao5);
-        btnNaoQuestao5.setMnemonic('0');
+        btnNaoQuestao5.setMnemonic(0);
         btnNaoQuestao5.setText("Não");
 
         buttonGrupoQuestao5.add(btnSimQuestao5);
-        btnSimQuestao5.setMnemonic('\u0001');
+        btnSimQuestao5.setMnemonic(1);
         btnSimQuestao5.setText("Sim");
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("6) Você fuma mesmo doente, quanto fica ficar de cama a maior parte do tempo?");
 
         buttonGrupoQuestao6.add(btnNaoQuestao6);
+        btnNaoQuestao6.setMnemonic(0);
         btnNaoQuestao6.setText("Não");
 
         buttonGrupoQuestao6.add(btnSimQuestao6);
-        btnSimQuestao6.setMnemonic('\u0001');
+        btnSimQuestao6.setMnemonic(1);
         btnSimQuestao6.setText("Sim");
 
-        buttonGrupoQuestao1.add(btn3Questao1);
-        btn3Questao1.setText("Não fumo");
+        buttonGrupoQuestao1.add(btn5Questao1);
+        btn5Questao1.setMnemonic(0);
+        btn5Questao1.setText("Não fumo");
 
-        buttonGrupoQuestao3.add(btn1Questao4);
-        btn1Questao4.setText("Não fumo");
+        buttonGrupoQuestao3.add(btn3Questao3);
+        btn3Questao3.setMnemonic(0);
+        btn3Questao3.setText("Não fumo");
 
-        buttonGrupoQuestao4.add(jRadioButton1);
-        jRadioButton1.setText("Menos de 10");
+        buttonGrupoQuestao4.add(btn1Questao4);
+        btn1Questao4.setMnemonic(0);
+        btn1Questao4.setText("Menos de 10");
 
-        buttonGrupoQuestao4.add(jRadioButton2);
-        jRadioButton2.setMnemonic('\u0001');
-        jRadioButton2.setText("Entre 10 e 20");
+        buttonGrupoQuestao4.add(btn2Questao4);
+        btn2Questao4.setMnemonic(1);
+        btn2Questao4.setText("Entre 10 e 20");
 
-        buttonGrupoQuestao4.add(jRadioButton3);
-        jRadioButton3.setMnemonic('\u0002');
-        jRadioButton3.setText("Entre 20 e 30");
+        buttonGrupoQuestao4.add(btn3Questao4);
+        btn3Questao4.setMnemonic(2);
+        btn3Questao4.setText("Entre 20 e 30");
 
-        buttonGrupoQuestao4.add(jRadioButton4);
-        jRadioButton4.setMnemonic('\u0003');
-        jRadioButton4.setText("Mais de 31");
+        buttonGrupoQuestao4.add(btn4Questao4);
+        btn4Questao4.setMnemonic(3);
+        btn4Questao4.setText("Mais de 31");
 
-        buttonGrupoQuestao4.add(jRadioButton5);
-        jRadioButton5.setText("Não fumo");
+        buttonGrupoQuestao4.add(btn5Questao4);
+        btn5Questao4.setMnemonic(0);
+        btn5Questao4.setText("Não fumo");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -303,7 +311,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btn3Grupo1)
                                 .addGap(18, 18, 18)
-                                .addComponent(btn3Questao1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn5Questao1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(148, Short.MAX_VALUE))
                     .addComponent(jSeparator5)))
             .addComponent(jSeparator2)
@@ -313,11 +321,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(btn2Questao3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn1Questao3, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(32, 32, 32)
-                        .addComponent(btn1Questao3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn2Questao3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn1Questao4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn3Questao3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -349,15 +357,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addGap(35, 35, 35)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn2Questao4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jRadioButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btn4Questao4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn1Questao4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(60, 60, 60)
-                                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btn3Questao4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(28, 28, 28)
-                        .addComponent(jRadioButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btn5Questao4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(btn2Grupo1)
@@ -374,7 +382,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn1Grupo1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn3Grupo1)
-                    .addComponent(btn3Questao1))
+                    .addComponent(btn5Questao1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn2Grupo1)
@@ -393,22 +401,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn1Questao3)
                     .addComponent(btn2Questao3)
-                    .addComponent(btn1Questao4))
+                    .addComponent(btn1Questao3)
+                    .addComponent(btn3Questao3))
                 .addGap(13, 13, 13)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton5))
+                    .addComponent(btn1Questao4)
+                    .addComponent(btn3Questao4)
+                    .addComponent(btn5Questao4))
                 .addGap(2, 2, 2)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton4))
+                    .addComponent(btn2Questao4)
+                    .addComponent(btn4Questao4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -572,14 +580,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     private void btnEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEnviarActionPerformed
-
         if (validarCamposPreenchidos()) {
             double altura = Double.parseDouble(txtAltura.getText().replace(",", "."));
             double peso = Double.parseDouble(txtPeso.getText().replace(",", "."));
             Integer qtdAtividadeFisicaSemanal = cbAtividadeFisica.getSelectedIndex();
             Integer pas = Integer.valueOf(txtPas.getText());
             Integer pad = Integer.valueOf(txtPad.getText());
-            Integer opiniaoEspecialistaChanceAtqCardiaco = riscoCardiaco.getValue();
+            double opiniaoEspecialistaChanceAtqCardiaco = riscoCardiaco.getValue();
 
             Request request = new Request();
             request.setAltura(altura);
@@ -589,7 +596,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             request.setPad(pad);
             request.setPontuacaoTabagismo(this.getPontuacaoFormularioTabagismo());
             request.setOpniaoEspecialistaChanceAtqCardiaco(opiniaoEspecialistaChanceAtqCardiaco/100);
-
+            
             String resposta = conexao.iniciar(request);
 
             JOptionPane.showMessageDialog(
@@ -655,9 +662,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JRadioButton btn1Questao4;
     private javax.swing.JRadioButton btn2Grupo1;
     private javax.swing.JRadioButton btn2Questao3;
+    private javax.swing.JRadioButton btn2Questao4;
     private javax.swing.JRadioButton btn3Grupo1;
-    private javax.swing.JRadioButton btn3Questao1;
+    private javax.swing.JRadioButton btn3Questao3;
+    private javax.swing.JRadioButton btn3Questao4;
     private javax.swing.JRadioButton btn4Grupo1;
+    private javax.swing.JRadioButton btn4Questao4;
+    private javax.swing.JRadioButton btn5Questao1;
+    private javax.swing.JRadioButton btn5Questao4;
     private javax.swing.JButton btnEnviar;
     private javax.swing.JRadioButton btnNaoQuestao2;
     private javax.swing.JRadioButton btnNaoQuestao5;
@@ -687,11 +699,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;

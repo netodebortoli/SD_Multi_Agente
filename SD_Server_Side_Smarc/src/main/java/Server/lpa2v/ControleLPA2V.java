@@ -9,7 +9,7 @@ public class ControleLPA2V {
     private static final double c2 = -0.7;
     private static final double c3 = 0.7;
     private static final double c4 = -0.7;
-    
+
     public static String iniciarAlgoritmo(List<Double> entradas) {
         List<Double> dados = new ArrayList<>();
         List<P> nodes = new ArrayList<>();
@@ -29,14 +29,13 @@ public class ControleLPA2V {
             nodes.forEach(no -> {
                 dados.add(analiseDeNo(no));
             });
-            iniciarAlgoritmo(dados);
+            return iniciarAlgoritmo(dados);
         } else {
             P p = new P(
                     entradas.get(0),
-                    entradas.get(1));
+                    definirGrauEvidenciaDesfavoravel(entradas.get(1)));
             return definirEstadoLogico(p);
         }
-        return null;
     }
 
     private static String definirEstadoLogico(P p) {
@@ -45,7 +44,7 @@ public class ControleLPA2V {
         double Gc = definirGrauCerteza(p.getMi(), p.getLambda());
         double Gct = definirGrauContradicao(p.getMi(), p.getLambda());
 
-        if(Gc >= c1){
+        if (Gc >= c1) {
             s = "Verdadeiro";
         } else if (Gc <= c2) {
             s = "Falso";
@@ -55,38 +54,38 @@ public class ControleLPA2V {
             s = "Indeterminado";
         }
 
-        if((Gc >= 0 && Gc < c1) && (Gct >= 0 && Gct < c3) ){
-            if(Gc >= Gct){
+        if ((Gc >= 0 && Gc < c1) && (Gct >= 0 && Gct < c3)) {
+            if (Gc >= Gct) {
                 s = "Quase verdadeiro tendendo ao inconsistente";
             } else {
                 s = "Inconsistente tendendo ao verdadeiro";
             }
         }
-        
-        if((Gc >= 0 && Gc < c1) && (Gct > c4 && Gct <= 0)){
-            if(Gc >= Math.abs(Gct)){
+
+        if ((Gc >= 0 && Gc < c1) && (Gct > c4 && Gct <= 0)) {
+            if (Gc >= Math.abs(Gct)) {
                 s = "Quase verdadeiro tendendo ao indeterminado";
             } else {
                 s = "Indeterminado tendendo ao verdadeiro";
             }
         }
-        
-        if((Gc > c2 && Gc <= 0) && (Gct > c4 && Gct <= 0)){
-            if(Math.abs(Gc) >= Math.abs(Gct)){
+
+        if ((Gc > c2 && Gc <= 0) && (Gct > c4 && Gct <= 0)) {
+            if (Math.abs(Gc) >= Math.abs(Gct)) {
                 s = "Quase falso tendendo ao indeterminado";
             } else {
                 s = "Indeterminado tendendo ao falso";
             }
         }
-        
-        if((Gc > c2 && Gc <= 0) && (Gct >= 0 && Gct < c3)){
-            if(Math.abs(Gc) >= Gct){
+
+        if ((Gc > c2 && Gc <= 0) && (Gct >= 0 && Gct < c3)) {
+            if (Math.abs(Gc) >= Gct) {
                 s = "Quase falso tendendo ao inconsistente";
             } else {
                 s = "Inconsistente tendendo ao falso";
             }
         }
-        
+
         return s;
     }
 

@@ -24,7 +24,6 @@ public class AlgoritmoLPA2V extends Thread {
     private int porta;
     private InetAddress ipGrupo;
     private Request request;
-    private String resposta;
     private static ObjectOutputStream saida;
     private static ControleLPA2V controle;
 
@@ -39,9 +38,9 @@ public class AlgoritmoLPA2V extends Thread {
         List<Double> entradas = new ArrayList();
         List<Agente> agentes = List.of(
                 new AgObesidade(request),
+                new AgSedentarismo(request),
                 new AgPressaoSistolica(request),
                 new AgPressaoDiastolica(request),
-                new AgSedentarismo(request),
                 new AgTabagismo(request),
                 new AgProfissional(request)
         );
