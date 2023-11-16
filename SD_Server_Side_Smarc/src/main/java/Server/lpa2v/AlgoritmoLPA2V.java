@@ -54,7 +54,12 @@ public class AlgoritmoLPA2V extends Thread {
     @Override
     public void run() {
         List<Double> entradasLpa2v = this.iniciarAgentes();
-        ControleLPA2V.iniciarAlgoritmo(entradasLpa2v);
+        String response = ControleLPA2V.iniciarAlgoritmo(entradasLpa2v);
+        if (response == null) {
+            envia(new Response("Não foi possível realizar a operação."));
+        } else {
+            envia(new Response(response));
+        }
     }
 
     private void envia(Response resposta) {

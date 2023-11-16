@@ -5,43 +5,42 @@ import java.util.List;
 
 public class ControleLPA2V {
 
-    public static void iniciarAlgoritmo(List<Double> entradas) {
+    public static String iniciarAlgoritmo(List<Double> entradas) {
         List<Double> dados = new ArrayList<>();
-
-//        if (entradas.size() % 2 == 0 && entradas.size() > 1) {;
-//            for (int i = 0; i < entradas.size(); i += 2) {
-//                double result;
-//                P p = new P(
-//                        entradas.get(i),
-//                        definirGrauEvidenciaDesfavoravel(entradas.get(i + 1)));
-//                result = analiseDeNo(p);
-//                dados.add(result);
-//            }
-//            iniciarAlgoritmo(dados);
-//        } else if (entradas.size() % 2 == 1 && entradas.size() > 1) {
-//            P p = max(
-//                    new P(entradas.get(0), entradas.get(1)),
-//                    new P())
-//            )
-//        } else if (entradas.size() == 1) {
-//
-//        }
-        if (entradas.size() > 1) {
+        List<P> nodes = new ArrayList<>();
+        if (entradas.size() > 2) {
             for (int i = 0; i < entradas.size(); i += 2) {
-                double result;
                 P p = new P(
                         entradas.get(i),
                         definirGrauEvidenciaDesfavoravel(entradas.get(i + 1)));
-                result = analiseDeNo(p);
-                dados.add(result);
+                nodes.add(p);
             }
-            if (dados.size() % 2 == 1) {
-                iniciarAlgoritmo(dados);
+            if (nodes.size() % 2 == 1) {
+                P p = max(List.of(nodes.get(0), nodes.get(1)));
+                nodes.remove(0);
+                nodes.remove(1);
+                nodes.add(p);
             }
+            nodes.forEach(no -> {
+                dados.add(analiseDeNo(no));
+            });
+            iniciarAlgoritmo(dados);
         } else {
-
+            P p = new P(
+                    entradas.get(0),
+                    entradas.get(1));
+            return definirEstadoLogico(p);
         }
+        return null;
+    }
 
+    private static String definirEstadoLogico(P p) {
+        String s = "";
+
+        double Gc = definirGrauCerteza(p.getMi(), p.getLambda());
+        double Gct = definirGrauContradicao(p.getMi(), p.getLambda());
+
+        return s;
     }
 
     private static double analiseDeNo(P p) {
