@@ -18,8 +18,6 @@ import java.net.MulticastSocket;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class AlgoritmoLPA2V extends Thread {
 
@@ -28,7 +26,6 @@ public class AlgoritmoLPA2V extends Thread {
     private InetAddress ipGrupo;
     private Request request;
     private static ObjectOutputStream saida;
-    private static ControleLPA2V controle;
 
     public AlgoritmoLPA2V(Request request, MulticastSocket socket, int porta, InetAddress ipGrupo) {
         this.request = request;
@@ -68,9 +65,9 @@ public class AlgoritmoLPA2V extends Thread {
     private void envia(Response response) {
         try {
             ByteArrayOutputStream saidaDados = new ByteArrayOutputStream();
-            ObjectOutputStream oos = new ObjectOutputStream(saidaDados);
-            oos.writeObject(response);
-            oos.flush();
+            saida = new ObjectOutputStream(saidaDados);
+            saida.writeObject(response);
+            saida.flush();
             byte[] dadosDaResposta = saidaDados.toByteArray();
             socket.send(new DatagramPacket(dadosDaResposta, dadosDaResposta.length, ipGrupo, porta));
         } catch (IOException ex) {

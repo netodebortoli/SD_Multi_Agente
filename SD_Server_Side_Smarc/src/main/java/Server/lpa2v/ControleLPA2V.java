@@ -45,44 +45,44 @@ public class ControleLPA2V {
         double Gct = definirGrauContradicao(p.getMi(), p.getLambda());
 
         if (Gc >= c1) {
-            s = "Verdadeiro";
+            s = "Verdadeiro. O paciente possui 100% de chance de risco cardíaco.";
         } else if (Gc <= c2) {
-            s = "Falso";
+            s = "Falso. O paciente não possui risco cardíaco.";
         } else if (Gct >= c3) {
-            s = "Inconsistente";
+            s = "Inconsistente. As informações são contraditórias.";
         } else if (Gct <= c4) {
-            s = "Indeterminado";
+            s = "Indeterminado. As informações não foram suficientes para estabelecer uma resposta.";
         }
 
         if ((Gc >= 0 && Gc < c1) && (Gct >= 0 && Gct < c3)) {
             if (Gc >= Gct) {
-                s = "Quase verdadeiro tendendo ao inconsistente";
+                s = "Quase verdadeiro tendendo ao inconsistente. O paciente possui chances de risco cardíaco, porém requer novos exames.";
             } else {
-                s = "Inconsistente tendendo ao verdadeiro";
+                s = "Inconsistente tendendo ao verdadeiro. É necessário realizar mais exames para obter resultados mais consistentes.";
             }
         }
 
         if ((Gc >= 0 && Gc < c1) && (Gct > c4 && Gct <= 0)) {
             if (Gc >= Math.abs(Gct)) {
-                s = "Quase verdadeiro tendendo ao indeterminado";
+                s = "Quase verdadeiro tendendo ao indeterminado. O paciente possui chances de risco cardíaco, porém requer novos exames para melhor avaliação.";
             } else {
-                s = "Indeterminado tendendo ao verdadeiro";
+                s = "Indeterminado tendendo ao verdadeiro. É necessário realizar mais exames.";
             }
         }
 
         if ((Gc > c2 && Gc <= 0) && (Gct > c4 && Gct <= 0)) {
             if (Math.abs(Gc) >= Math.abs(Gct)) {
-                s = "Quase falso tendendo ao indeterminado";
+                s = "Quase falso tendendo ao indeterminado. O paciente não possui chances de risco cardíaco, porém requer novos exames para melhor avaliação.";
             } else {
-                s = "Indeterminado tendendo ao falso";
+                s = "Indeterminado tendendo ao falso. O paciente possui poucas chances de risco cardíaco.";
             }
         }
 
         if ((Gc > c2 && Gc <= 0) && (Gct >= 0 && Gct < c3)) {
             if (Math.abs(Gc) >= Gct) {
-                s = "Quase falso tendendo ao inconsistente";
+                s = "Quase falso tendendo ao inconsistente. É necessário realizar mais exames para obter resultados mais consistentes.";
             } else {
-                s = "Inconsistente tendendo ao falso";
+                s = "Inconsistente tendendo ao falso. É necessário realizar mais exames.";
             }
         }
 
