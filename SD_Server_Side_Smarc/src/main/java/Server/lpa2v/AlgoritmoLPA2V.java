@@ -16,7 +16,10 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AlgoritmoLPA2V extends Thread {
 
@@ -47,27 +50,29 @@ public class AlgoritmoLPA2V extends Thread {
         agentes.forEach(a -> {
             entradas.add(a.executar());
         });
+        Collections.shuffle(entradas);
         return entradas;
     }
 
     @Override
     public void run() {
+        Response response = new Response(request.getId(), "Não foi possível realizar a operação.");
         List<Double> entradasLpa2v = this.iniciarAgentes();
-        String response = ControleLPA2V.iniciarAlgoritmo(entradasLpa2v);
-        if (response == null) {
-            envia(new Response("Não foi possível realizar a operação."));
-        } else {
-            envia(new Response(response));
+        String mensagem = ControleLPA2V.iniciarAlgoritmo(entradasLpa2v);
+        if (mensagem != null) {
+            response.setMensagem(mensagem);
         }
+        envia(response);
     }
 
-    private void envia(Response resposta) {
+    private void envia(Response response) {
         try {
             ByteArrayOutputStream saidaDados = new ByteArrayOutputStream();
-            saida = new ObjectOutputStream(saidaDados);
-            saida.writeObject(resposta);
-            byte[] data = saidaDados.toByteArray();
-            socket.send(new DatagramPacket(data, data.length, ipGrupo, porta));
+            ObjectOutputStream oos = new ObjectOutputStream(saidaDados);
+            oos.writeObject(response);
+            oos.flush();
+            byte[] dadosDaResposta = saidaDados.toByteArray();
+            socket.send(new DatagramPacket(dadosDaResposta, dadosDaResposta.length, ipGrupo, porta));
         } catch (IOException ex) {
             System.out.println("Erro na criação dos Streams (IO Exception):\n" + ex.getMessage());
         }

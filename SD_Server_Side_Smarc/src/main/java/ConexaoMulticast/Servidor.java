@@ -45,7 +45,7 @@ public class Servidor {
 
                 if (readObjectInputStream instanceof Request) {
                     AlgoritmoLPA2V algoritmo = new AlgoritmoLPA2V(
-                            (Request) readObjectInputStream, socket, bufferSize, enderecoGrupo);
+                            (Request) readObjectInputStream, socket, MULTICAST_PORT, enderecoGrupo);
                     algoritmo.start();
                 }
 

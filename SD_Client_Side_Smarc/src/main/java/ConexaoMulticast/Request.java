@@ -1,9 +1,11 @@
 package ConexaoMulticast;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 public class Request implements Serializable {
 
+    private UUID id;
     private double peso;
     private double altura;
     private Integer pas;
@@ -13,6 +15,14 @@ public class Request implements Serializable {
     private double opniaoEspecialistaChanceAtqCardiaco;
 
     public Request() {
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public double getPeso() {

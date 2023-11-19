@@ -589,6 +589,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             double opiniaoEspecialistaChanceAtqCardiaco = riscoCardiaco.getValue();
 
             Request request = new Request();
+            request.setId(conexao.getId());
             request.setAltura(altura);
             request.setPeso(peso);
             request.setQtdAtividadeFisicaSemanal(qtdAtividadeFisicaSemanal);

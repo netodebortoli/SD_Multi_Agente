@@ -9,6 +9,7 @@ import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
 import java.net.UnknownHostException;
+import java.util.UUID;
 
 public class Conexao {
 
@@ -17,9 +18,16 @@ public class Conexao {
     private InetAddress enderecoGrupo;
     private MulticastSocket socket;
     private final int bufferSize = 1024 * 4;
+    private static ObjectInputStream entrada = null;
+    private UUID id;
+
+    public UUID getId() {
+        return id;
+    }
 
     public Conexao() {
         try {
+            this.id = UUID.randomUUID();
             enderecoGrupo = InetAddress.getByName(multiCastAddress);
         } catch (UnknownHostException ex) {
             System.out.println("Erro ao conectar com o grupo (UnknownHostException):\n" + ex.getMessage());
@@ -27,16 +35,14 @@ public class Conexao {
     }
 
     public String iniciar(Request request) {
-        
-        String respostaInterface = "Erro ao obter resultados";
-        
+
+        Response response = null;
+
         // create a socket
         try {
             socket = new MulticastSocket(MULTICAST_PORT);
             socket.joinGroup(enderecoGrupo);
-            
-            System.out.println(request.getAltura());
-            
+
             // prepare date
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             ObjectOutputStream oos = new ObjectOutputStream(baos);
@@ -46,33 +52,35 @@ public class Conexao {
 
             socket.send(new DatagramPacket(data, data.length, enderecoGrupo, MULTICAST_PORT));
 
-            while(true){
+            while (true) {
                 byte[] buffer = new byte[bufferSize];
-                socket.receive(new DatagramPacket(buffer, bufferSize, enderecoGrupo, MULTICAST_PORT));
-                
+                socket.receive(new DatagramPacket(buffer, bufferSize));
+
                 ByteArrayInputStream bais = new ByteArrayInputStream(buffer);
-                ObjectInputStream ois = new ObjectInputStream(bais);
-                
+                entrada = new ObjectInputStream(bais);
+
                 try {
-                    Object readObject = ois.readObject();
-                    if(readObject instanceof Response){
-                        Response response = (Response)readObject;
-                        respostaInterface = response.getMensagem();
-                    } else {
-                        System.out.println("Objeto recebido não é do tipo Response");
+                    Object readObject = entrada.readObject();
+                    if (readObject instanceof Response) {
+                        response = (Response) readObject;
+                        if (response.getId().equals(this.id)) {
+                            break;
+                        }
                     }
-                    break;
-                } catch (Exception e){
-                    System.out.println("Não foi possível ler o objeto vindo no datagrama UDP");
+                } catch (IOException e) {
+                    System.out.println("Erro ao receber objeto (IOException):\n" + e.getMessage());
+                } catch (ClassNotFoundException e) {
+                    System.out.println("Erro ao ler classe do objeto de respota(ClassNotFoundException):\n" + e.getMessage());
                 }
             }
-            
-            
+
         } catch (IOException ex) {
             System.out.println("Erro ao conectar com o socket (IOException):\n" + ex.getMessage());
         }
-        
-        return respostaInterface;
+
+        return response != null
+                ? response.getMensagem()
+                : "Erro ao obter resultados";
     }
 
 }
